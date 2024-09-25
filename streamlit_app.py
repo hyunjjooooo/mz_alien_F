@@ -429,11 +429,11 @@ def main():
     #     youtube_api_key = st.text_input("YouTube API 키", type="password", value=youtube_api_key)
     #     st.caption("API 키는 안전하게 저장되며 세션이 종료되면 삭제됩니다.")
         
-    #     if st.button("API 키 저장"):
-    #         if claude_api_key and youtube_api_key:
-    #             st.success("API 키가 저장되었습니다!")
-    #         else:
-    #             st.error("두 API 키를 모두 입력해주세요.")
+        if st.button("API 키 저장"):
+            if claude_api_key and youtube_api_key:
+                st.success("API 키가 저장되었습니다!")
+            else:
+                st.error("두 API 키를 모두 입력해주세요.")
 
     if not claude_api_key or not youtube_api_key:
         st.warning("사이드바에 Claude API 키와 YouTube API 키를 입력해주세요.")
