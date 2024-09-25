@@ -73,8 +73,8 @@ def add_emoji_animation():
     return emoji_html
 
 # 환경 변수에서 API 키 가져오기
-claude_api_key = st.secrets["ANTHROPIC_API_KEY"]
-youtube_api_key = st.secrets["YOUTUBE_API_KEY"]
+claude_api_key = st.secrets.get("CLAUDE_API_KEY", "")
+youtube_api_key = st.secrets.get("YOUTUBE_API_KEY", "")
 
 def get_video_id(url):
     logger.debug(f"URL 파싱 시도: {url}")
@@ -439,6 +439,8 @@ def main():
         st.warning("사이드바에 Claude API 키와 YouTube API 키를 입력해주세요.")
         emoji_placeholder.markdown(add_emoji_animation(), unsafe_allow_html=True)
         return
+
+    # 나머지 코드...
 
     try:
         claude_client = Anthropic(api_key=claude_api_key)
