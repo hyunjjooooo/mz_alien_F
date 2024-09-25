@@ -422,12 +422,12 @@ def main():
 
     emoji_placeholder = st.empty()
 
-    # with st.sidebar:
-    #     st.header("⚙️ 설정")
-    #     global claude_api_key, youtube_api_key
-    #     claude_api_key = st.text_input("Claude API 키", type="password", value=claude_api_key)
-    #     youtube_api_key = st.text_input("YouTube API 키", type="password", value=youtube_api_key)
-    #     st.caption("API 키는 안전하게 저장되며 세션이 종료되면 삭제됩니다.")
+    with st.sidebar:
+        st.header("⚙️ 설정")
+        global claude_api_key, youtube_api_key
+        claude_api_key = st.text_input("Claude API 키", type="password", value=claude_api_key)
+        youtube_api_key = st.text_input("YouTube API 키", type="password", value=youtube_api_key)
+        st.caption("API 키는 안전하게 저장되며 세션이 종료되면 삭제됩니다.")
         
         if st.button("API 키 저장"):
             if claude_api_key and youtube_api_key:
